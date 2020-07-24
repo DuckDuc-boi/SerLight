@@ -3,7 +3,7 @@ const eco = new Eco.Manager;
 const {laysodep} = require('../../functions')
 module.exports = {
     name: 'give',
-    category: ':money_with_wings: Tiền tệ',
+    category: 'gamble',
     aliases: ['transfer'],
     description: 'Chuyển tiền cho người khác!',
     usage: 'give <@tag or ID> <so tien>',
@@ -15,7 +15,7 @@ module.exports = {
         let sotienchuyen = args[1]
         if (!sotienchuyen || isNaN(sotienchuyen)) return message.channel.send('Hãy nhập số tiền cần chuyển.')
         if (authordata.amount < sotienchuyen) return message.channel.send('Bạn không đủ tiền để chuyển')
-        eco.transfer(message.author.id, member.id, sotienchuyen)
+        await eco.transfer(message.author.id, member.id, sotienchuyen)
         return message.channel.send(`Bạn đã chuyển thành công **${laysodep(sotienchuyen)}** tiền tới **${member.user.tag}**.`)
     }
 }
