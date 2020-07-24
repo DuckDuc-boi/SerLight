@@ -4,10 +4,10 @@ const { promptMessage } = require("../../functions.js");
 const db = require('quick.db');
 module.exports = {
     name: "ban",
-    category: "🔧moderation",
+    category: "moderation",
     description: "Ban người khác",
     usage: "ban <@tag, id> [lý do]",
-    example: "ban @phamelduy04",
+    example: "ban @Duck",
     run: async(client, message, args) => {
         let serverdata = db.get(message.guild.id)
         if (serverdata.logchannel == null) return message.reply(`Bạn chưa set log channel, vui lòng sử dụng lệnh \`${serverdata.prefix}setlogchannel\` để set log channel.`)
@@ -77,7 +77,7 @@ module.exports = {
             // Verification stuffs
             if (emoji === "✅") {
                 msg.delete();
-                toBan.send(`Bạn vừa bị ban ở server \`${toKick.guild.name}\`. Lý do: \`${args.slice(1).join(' ')}\``)
+                toBan.send(`Bạn vừa bị ban ở server \`${toBan.guild.name}\`. Lý do: \`${args.slice(1).join(' ')}\``)
                 toBan.ban(reason)
                     .catch(err => {
                         if (err) return message.channel.send(`Bị lỗi khi ban: ${err.message}`)
