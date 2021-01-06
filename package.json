@@ -6,7 +6,7 @@
     "@discordjs/opus": "^0.3.2",
     "@google-cloud/text-to-speech": "^2.3.0",
     "ascii-table": "0.0.9",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "better-sqlite3": "^7.1.0",
     "canvacord": "^3.0.9",
     "canvas": "^2.6.1",
